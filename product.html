@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Details | ShopEasy</title>
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+
+  <!-- 🔹 Header -->
+  <header class="header">
+    <div class="logo">🛍️ ShopEasy</div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#products">Products</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="header-right">
+      <div class="search-box">
+        <input type="text" placeholder="Search products..." />
+      </div>
+      <div class="cart-icon">
+        🛒 <span id="cartCount">0</span>
+      </div>
+      <div class="hamburger" id="hamburger">&#9776;</div>
+    </div>
+  </header>
+
+  <!-- 🔹 Mobile Nav -->
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="index.html#products">Products</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <!-- 🔹 Product Detail -->
+  <main class="product-detail-container" id="productDetail">
+    <!-- Dynamic content from product.js will be injected here -->
+  </main>
+
+  <!-- 🔹 Footer (Optional) -->
+  <footer>
+    <p>&copy; 2025 ShopEasy. All rights reserved.</p>
+  </footer>
+
+  <!-- 🔹 Scripts -->
+  <script src="scripts/app.js" defer></script>
+  <script src="scripts/product.js" defer></script>
+
+</body>
+</html>

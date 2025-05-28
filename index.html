@@ -1,15 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Commerce Frontend</title>
-    <link rel="stylesheet" href="styles/main.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ShopEasy - E-Commerce Frontend</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="preload" href="Roboto.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
 </head>
 <body>
-    <header>
-        <h1>Welcome to Our Online Store</h1>
-    </header>
-    <script src="scripts/app.js"></script>
+
+  <!-- 🔹 HEADER -->
+  <header class="header">
+    <div class="logo">🛍️ ShopEasy</div>
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="#products">Products</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="header-right">
+      <div class="search-box">
+        <input type="text" placeholder="Search products..." />
+      </div>
+      <div class="cart-icon">
+        🛒 <span id="cartCount">0</span>
+      </div>
+      <div class="hamburger" id="hamburger">&#9776;</div>
+    </div>
+  </header>
+
+  <!-- 🔹 MOBILE NAV -->
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="#">Home</a>
+    <a href="#products">Products</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <!-- 🔹 HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Biggest Sale of the Year!</h1>
+      <p>Up to 70% off on selected items. Limited time only!</p>
+      <a href="#products" class="hero-btn">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- 🔹 PRODUCT GRID SECTION -->
+  <section class="product-section" id="products">
+    <h2>Our Products</h2>
+    <div class="product-grid" id="productGrid">
+      <!-- JS inserts product cards dynamically here -->
+    </div>
+  </section>
+
+  <!-- 🔹 SCRIPTS -->
+  <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js"></script>
+  <script src="scripts/app.js" defer></script>
+  <script src="main.js" defer></script>
+
 </body>
 </html>

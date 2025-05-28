@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <style>
+    form {
+      max-width: 400px;
+      margin: auto;
+      padding: 2rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: #fefefe;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    input, button {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 1rem;
+    }
+
+    progress {
+      width: 100%;
+      height: 10px;
+      margin-top: -5px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    button.toggle-btn {
+      width: auto;
+      margin-left: 10px;
+      font-size: 0.9rem;
+      background: transparent;
+      border: none;
+      color: #0d6efd;
+      cursor: pointer;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .password-container {
+      position: relative;
+    }
+
+    a {
+      display: block;
+      margin-top: 10px;
+      color: #0d6efd;
+      text-decoration: none;
+      text-align: right;
+    }
+
+    p {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="signupForm">
+    <h2>Sign Up</h2>
+    <input type="text" placeholder="Full Name" required />
+    <input type="email" placeholder="Email" required />
+
+    <div class="password-container">
+      <input type="password" id="signupPassword" placeholder="Password" required />
+      <button type="button" class="toggle-btn" onclick="togglePassword('signupPassword', this)">Show</button>
+    </div>
+
+    <progress id="strengthBar" value="0" max="100"></progress>
+
+    <div class="password-container">
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" required />
+      <button type="button" class="toggle-btn" onclick="togglePassword('confirmPassword', this)">Show</button>
+    </div>
+
+    <button type="submit">Sign Up</button>
+
+    <p>Already have an account? <a href="login.html">Log in</a></p>
+  </form>
+
+  <p style="text-align:center;">
+    <a href="#" onclick="toggleForms()">Switch to Signup/Login</a>
+  </p>
+
+  <script>
+    const passwordInput = document.getElementById('signupPassword');
+    const strengthBar = document.getElementById('strengthBar');
+
+    passwordInput.addEventListener('input', () => {
+      const val = passwordInput.value;
+      const strength = calculateStrength(val);
+      strengthBar.value = strength;
+      strengthBar.style.backgroundColor = getStrengthColor(strength);
+    });
+
+    function calculateStrength(password) {
+      let score = 0;
+      if (!password) return score;
+
+      // Length points
+      if (password.length >= 8) score += 30;
+      else score += password.length * 3;
+
+      // Has lowercase
+      if (/[a-z]/.test(password)) score += 20;
+      // Has uppercase
+      if (/[A-Z]/.test(password)) score += 20;
+      // Has numbers
+      if (/\d/.test(password)) score += 20;
+      // Has special chars
+      if (/[\W_]/.test(password)) score += 20;
+
+      return Math.min(score, 100);
+    }
+
+    function getStrengthColor(score) {
+      if (score < 40) return 'red';
+      if (score < 70) return 'orange';
+      return 'green';
+    }
+
+    function togglePassword(fieldId, btn) {
+      const input = document.getElementById(fieldId);
+      if (input.type === "password") {
+        input.type = "text";
+        btn.textContent = "Hide";
+      } else {
+        input.type = "password";
+        btn.textContent = "Show";
+      }
+    }
+
+    document.getElementById('signupForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const password = passwordInput.value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+      }
+
+      // Proceed with form submission or API call here
+      alert("Signup successful!");
+    });
+
+    function toggleForms() {
+      // Implement toggle logic or navigation here
+      alert("Switching between signup/login (implement this logic)");
+    }
+  </script>
+
+</body>
+</html>

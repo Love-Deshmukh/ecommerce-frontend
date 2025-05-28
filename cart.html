@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Cart | ShopEasy</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="preload" href="fonts/Roboto.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+</head>
+<body>
+
+  <!-- 🔹 Header -->
+  <header class="header">
+    <div class="logo">🛍️ ShopEasy</div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#products">Products</a>
+    </nav>
+    <div class="header-right">
+      <div class="cart-icon">
+        🛒 <span id="cartCount">0</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- 🔹 Cart Main Section -->
+  <main id="cartContainer" class="cart-container">
+    <!-- Cart items will be injected here by JavaScript -->
+  </main>
+
+  <!-- 🔹 Cart Summary -->
+  <section id="cartSummary" class="cart-summary">
+    <h3>Total: $<span id="totalPrice">0.00</span></h3>
+    <button id="checkoutBtn" disabled>Proceed to Checkout</button>
+  </section>
+
+  <!-- 🔹 Script -->
+  <script src="scripts/cart.js" defer></script>
+
+</body>
+</html>
